@@ -1,0 +1,36 @@
+{
+    "name": "webshore/wp-htmx-router",
+    "description": "An intuitive WordPress router.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Henrik Liebel",
+            "email": "mail@henrikliebel.com"
+        }
+    ],
+    "require": {
+        "symfony/http-foundation": "^6.4.4",
+        "altorouter/altorouter": "^2.0.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "WPHTMX\\Router\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WPHTMX\\Router\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit  --display-deprecations"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
