@@ -116,6 +116,8 @@ Router::map(['GET'], 'posts/{id}', function () {})->name('posts.show');
 $url = Router::url('posts.show', ['id' => 123]);
 ```
 
+If a passed in parameter fails the regex constraint applied, a `RouteParamFailedConstraintException` will be thrown.
+
 #### HTTP Verb Shortcuts
 Typically you only need to allow one HTTP verb for a route, for these cases the following shortcuts can be used:
 
