@@ -6,7 +6,7 @@ This library was forked as a dependendy for [WordPress HTMX plugin](https://gith
 ## Installation
 
 ```
-composer require hexbit/router
+composer require webshore/wp-htmx-router
 ```
 
 ## Usage
