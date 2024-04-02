@@ -21,7 +21,7 @@ Creating a route is done using the `map` function:
 In wordpress
 ```php
 // for wordpress projects
-use Hexbit\Router\WordPress\Router;
+use WPHTMX\Router\WordPress\Router;
 
 // first init router
 add_action("init", function () {
@@ -38,7 +38,7 @@ Router::map(['GET', 'POST'], 'posts/list', function () {
 If you do not use the WordPress system, use the router class below, and [you can attempt to match your current request](#matching-routes-to-requests) in appropriate time.
 ```php
 // use this class for non wordpress systems
-use Hexbit\Router\Router;
+use WPHTMX\Router\Router;
 
 // Creates a route that matches the uri `/posts/list` both GET 
 // and POST requests. 
@@ -209,7 +209,8 @@ Please make sure to update tests as appropriate.
 
 Credits
 ----
-https://github.com/smarteist/wordpress-router
+* [WordPress Route](https://github.com/smarteist/wordpress-router)
+* [Rare Router](https://github.com/Rareloop/router)
 
 
 License
