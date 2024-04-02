@@ -4,7 +4,7 @@ namespace WPHTMX\Router;
 
 class RouteGroup implements Routable
 {
-	use MethodShortcutsTrait;
+	use VerbShortcutsTrait;
 
 	protected $router;
 	protected $prefix;

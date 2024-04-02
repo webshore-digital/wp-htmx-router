@@ -2,6 +2,7 @@
 
 namespace WPHTMX\Router;
 
+use InvalidArgumentException;
 use WPHTMX\Router\Exceptions\RouteClassStringControllerNotFoundException;
 use WPHTMX\Router\Exceptions\RouteClassStringMethodNotFoundException;
 use WPHTMX\Router\Exceptions\RouteClassStringParseException;
@@ -13,6 +14,7 @@ class Route
 	private $methods = [];
 	private $action;
 	private $name;
+	private $paramConstraints = [];
 
 	public function __construct ( array $methods, string $uri, $action )
 	{
@@ -82,6 +84,31 @@ class Route
 		$this->name = $name;
 
 		return $this;
+	}
+
+	public function where ()
+	{
+		$args = func_get_args();
+
+		if ( count( $args ) === 0 ) {
+			throw new InvalidArgumentException();
+		}
+
+		if ( is_array( $args[0] ) ) {
+			foreach ( $args[0] as $key => $value ) {
+				$this->paramConstraints[ $key ] = $value;
+			}
+		}
+		else {
+			$this->paramConstraints[ $args[0] ] = $args[1];
+		}
+
+		return $this;
+	}
+
+	public function getParamConstraints ()
+	{
+		return $this->paramConstraints;
 	}
 
 	public function getName ()

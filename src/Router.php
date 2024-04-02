@@ -38,7 +38,7 @@ class Router
 	 */
 	public static function processRequest ()
 	{
-		$response = self::instance()->match();
+		$response = self::instance()->match( Request::createFromGlobals() );
 
 		if ( $response && $response->getStatusCode() !== Response::HTTP_NOT_FOUND ) {
 			$response->send();

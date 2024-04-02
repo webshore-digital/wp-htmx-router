@@ -69,6 +69,35 @@ Router::map(['GET'], 'posts/{id}', function(RouteParams $params, Request $reques
     return $params->id;
 });
 ```
+If you need to add constraints to a parameter you can pass a regular expression pattern to the `where()` function of the defined `Route`:
+
+```php
+$router->map(['GET'], 'posts/{id}/comments/{commentKey}', function(RouteParams $params) {
+    return $params->id;
+})->where('id', '[0-9]+')->where('commentKey', '[a-zA-Z]+');
+
+// or
+
+$router->map(['GET'], 'posts/{id}/comments/{commentKey}', function(RouteParams $params) {
+    return $params->id;
+})->where([
+    'id', '[0-9]+',
+    'commentKey', '[a-zA-Z]+',
+]);
+```
+
+#### Optional route Parameters
+Sometimes your route parameters needs to be optional, in this case you can add a `?` after the parameter name:
+
+```php
+$router->map(['GET'], 'posts/{id?}', function(RouteParams $params) {
+    if (isset($params->id)) {
+        // Param provided
+    } else {
+        // Param not provided
+    }
+});
+```
 
 #### Named Routes
 Routes can be named so that their URL can be generated programatically:

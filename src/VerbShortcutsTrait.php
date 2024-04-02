@@ -2,7 +2,7 @@
 
 namespace WPHTMX\Router;
 
-trait MethodShortcutsTrait
+trait VerbShortcutsTrait
 {
 	public function get ( string $uri, $callback ) : Route
 	{
